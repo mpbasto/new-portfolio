@@ -17,21 +17,21 @@ module.exports = merge(common, {
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
-      new HtmlWebpackPlugin({
-        template: "./public/index.html",
-        favicon: "./public/favicon.png",
-        minify: {
-          removeAttributeQuotes: true,
-          collapseWhitespace: true,
-          removeComments: true,
-        },
-      }),
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      favicon: "./public/favicon.png",
+      minify: {
+        removeAttributeQuotes: true,
+        collapseWhitespace: true,
+        removeComments: true,
+      },
     }),
   ],
   module: {
